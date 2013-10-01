@@ -1,6 +1,7 @@
 # Architecture independent Azure SQL binary driver
 
-This is a binary distribution of Microsoft's node-sqlserver for Node 0.8,
+This is a binary distribution of Microsoft's
+[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver) for Node 0.8,
 patched so as to run on both x86 and x64 systems. This allows the development,
 the testing and the deployment environments to be of different architectures.
 
@@ -15,12 +16,12 @@ The binaries were [compiled by
 Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=29995). The
 list of dependencies is
 
- * Node.JS Runtime 0.8
- * Microsoft SQL Server 2012 Native Client available in the SQL Server 2012 Feature Pack.
+ * Node.JS Runtime 0.8 ([0.8.19](http://nodejs.org/dist/v0.8.19/) recommended,
+   as it's the most recent version of the 0.8 series available in Azure)
+ * Microsoft SQL Server 2012 Native Client available in the [SQL Server 2012
+   Feature
+   Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29065).
  * Any edition of SQL Server 2005 or later.
-
-The recommended version is 0.8.19, as it's the most recent version available in
-Azure.
 
 ## Local test
 
