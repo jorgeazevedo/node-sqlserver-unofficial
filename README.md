@@ -26,7 +26,9 @@ list of dependencies is
 ## Local test
 
 Before running the server, `connectionString` in `server.js` must be set to
-match your SQL Azure login credentials.
+match your SQL Azure login credentials. An example would be
+
+    var connectionString = "Driver={SQL Server Native Client 11.0};Server=tcp:?????.database.windows.net,1433;Database=????;Uid=?????@?????;Pwd=?????";
 
 If the dependencies have been correctly installed on your machine and the login
 credentials are correct, running

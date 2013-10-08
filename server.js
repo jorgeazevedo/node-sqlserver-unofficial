@@ -1,6 +1,4 @@
 var sql = require('msnodesql');
-// Change the connectionString. Example
-// "Driver={SQL Server Native Client 11.0};Server=tcp:?????.database.windows.net,1433;Database=????;Uid=?????@?????;Pwd=?????";
 var connectionString = "";
 var testQuery = "SELECT 1";
 
