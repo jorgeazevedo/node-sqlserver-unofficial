@@ -1,23 +1,15 @@
 # Architecture independent Azure SQL binary driver
 
 This is a binary distribution of Microsoft's
-[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver) for Node 0.8,
-patched so as to run on both x86 and x64 systems. This allows the development,
-the testing and the deployment environments to be of different architectures.
+[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver),
+patched to run on both x86 and x64 systems.
 
-The natural solution for this problem would be to distribute the code and
-recompile on each environment. This ends up being unpratical because of the
-dependencies for compiling node-sqlserver, which include a distribution of
-Visual Studio 2010.
+Node 0.10.x is the latest version supported. A backport to the 0.8 series using the [official Microsoft binaries](http://www.microsoft.com/en-us/download/details.aspx?id=29995) is available in the `node-0.8-series` branch.
 
 ## Dependencies
 
-The binaries were [compiled by
-Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=29995). The
-list of dependencies is
-
- * Node.JS Runtime 0.8 ([0.8.19](http://nodejs.org/dist/v0.8.19/) recommended,
-   as it's the most recent version of the 0.8 series available in Azure)
+ * Node.JS Runtime 0.10.x ([0.10.5](http://nodejs.org/dist/v0.10.5/) recommended,
+   as it's the most recent version available in Azure)
  * Microsoft SQL Server 2012 Native Client available in the [SQL Server 2012
    Feature
    Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29065).
@@ -26,7 +18,7 @@ list of dependencies is
 ## Local test
 
 Before running the server, `connectionString` in `server.js` must be set to
-match your SQL Azure login credentials. An example would be
+your SQL Azure login credentials. An example would be
 
     var connectionString = "Driver={SQL Server Native Client 11.0};Server=tcp:?????.database.windows.net,1433;Database=????;Uid=?????@?????;Pwd=?????";
 
@@ -35,8 +27,9 @@ credentials are correct, running
 
     $ node server.js
 
-and accessing `http://localhost:1337` will present the message
+and accessing `http://localhost:1337` will present a message similar to
 
+    node v0.10.5 x64.
     Query result - 1 
 
 ## Azure deployment
