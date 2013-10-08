@@ -13,16 +13,12 @@ var http = require('http');
 var port = process.env.PORT || 1337;
 var httpServer = http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type': 'text/plain'});
-	sql.open(connectionString, function(err, conn) {
-		if(err)
-			res.end("Connection Failed \n");
 
-		conn.query(testQuery, [], function(err, result) {
-			if(err)
-				res.end("Query Failed \n");
-			else
-				res.end("Query result - " + result[0]['Column0'] + " \n");
-		});
+	sql.query(connectionString, testQuery, function(err, result) {
+		if(err)
+			res.end("Query Failed \n");
+		else
+			res.end("Query result: " + result[0]['Column0'] + " \n");
 	});
 });
 
