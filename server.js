@@ -1,8 +1,8 @@
 var sql = require('msnodesql');
-var connectionString = "";
+var connectionString;
 var testQuery = "SELECT 1";
 
-if(connectionString ==  "") {
+if(!connectionString) {
 	console.log("This script cannot run without a connection string");
 	return;
 }
