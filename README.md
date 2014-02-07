@@ -54,19 +54,7 @@ looks like
 
 ## Copyright and license
 
-This derivative work is hereby released under the GPLv3, as made possible by the
+This derivative work is hereby released under the MIT license, as made possible by the
 terms of the Apache 2.0 license of the original node-sqlserver.
 
-Copyright (C) 2013 Jorge Azevedo
-
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program. If not, see http://www.gnu.org/licenses/.
+Terms available for review in LICENSE
