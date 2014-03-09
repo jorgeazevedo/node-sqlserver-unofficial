@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Node-sqlserver-binary by jorgeazevedo</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Node-sqlserver-binary</h1>
+        <p>This is a compiled version of node-sqlserver patched to run on both x86 and x64 systems</p>
+
+        <p class="view"><a href="https://github.com/jorgeazevedo/node-sqlserver-binary">View the Project on GitHub <small>jorgeazevedo/node-sqlserver-binary</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-binary/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-binary/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-binary">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="architecture-independent-azure-sql-binary-driver" class="anchor" href="#architecture-independent-azure-sql-binary-driver"><span class="octicon octicon-link"></span></a>Architecture independent Azure SQL binary driver</h1>
+
+<p>This is a binary distribution of Microsoft's
+<a href="https://github.com/WindowsAzure/node-sqlserver">node-sqlserver</a>, patched to run
+on both x86 and x64 systems.</p>
+
+<p>Node 0.10.x is the latest version supported. A backport to the 0.8 series using
+the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29995">official Microsoft
+binaries</a> is
+available in the <code>node-0.8-series</code> branch.</p>
+
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>Node.JS Runtime 0.10.x (<a href="http://nodejs.org/dist/v0.10.5/">0.10.5</a>
+recommended, as it's the most recent version available in Azure)</li>
+<li>Microsoft SQL Server 2012 Native Client available in the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29065">SQL Server 2012
+Feature Pack</a>.</li>
+<li>Any edition of SQL Server 2005 or later.</li>
+</ul><h2>
+<a name="local-test" class="anchor" href="#local-test"><span class="octicon octicon-link"></span></a>Local test</h2>
+
+<p>Before running the server, <code>connectionString</code> in <code>server.js</code> must be set to your
+SQL Azure login credentials. An example would be</p>
+
+<pre><code>var connectionString = "Driver={SQL Server Native Client 11.0};Server=tcp:?.database.windows.net,1433;Database=?;Uid=?;Pwd=?";
+</code></pre>
+
+<p>If the dependencies have been correctly installed on your machine and the login
+credentials are correct, running</p>
+
+<pre><code>$ node server.js
+</code></pre>
+
+<p>and accessing <code>http://localhost:1337</code> will present a message similar to</p>
+
+<pre><code>node v0.10.5 x64.
+Query result - 1 
+</code></pre>
+
+<h2>
+<a name="azure-deployment" class="anchor" href="#azure-deployment"><span class="octicon octicon-link"></span></a>Azure deployment</h2>
+
+<p>This project is an example of a deployable Azure website that queries an Azure
+SQL database and prints the result. A very simple sanity test, in essence.</p>
+
+<p>In a typical deployment, <code>node_modules</code> is not under source control. Instead,
+the dependencies are specified in the <code>package.json</code> file. During deployment,
+Azure will issue a <code>npm install</code> in the project root which will download all the
+specified dependencies.</p>
+
+<p>This will fail with node-sqlserver because Azure will not me able to compile it.
+Hence, instead of specifying the dependency in <code>package.json</code>, we add
+<code>node_modules\msnodesql\</code> to the repository. The result is a <code>.gitignore</code> that
+looks like</p>
+
+<pre><code>node_modules/
+!node_modules/msnodesql/
+</code></pre>
+
+<h2>
+<a name="copyright-and-license" class="anchor" href="#copyright-and-license"><span class="octicon octicon-link"></span></a>Copyright and license</h2>
+
+<p>This derivative work is hereby released under the MIT license, as made possible by the
+terms of the Apache 2.0 license of the original node-sqlserver.</p>
+
+<p>Terms available for review in LICENSE</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jorgeazevedo">jorgeazevedo</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
