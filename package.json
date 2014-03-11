@@ -6,15 +6,15 @@
       "keywords": ["sql", "database", "mssql", "azure", "sqlserver", "tds", "microsoft", "msnodesql", "node-sqlserver"],
       "repository" : {
         "type" : "git",
-        "url" : "https://github.com/jorgeazevedo/node-sqlserver-binary.git"
+        "url" : "https://github.com/jorgeazevedo/node-sqlserver-unofficial.git"
       },
       "bugs" : {
-        "url" : "https://github.com/jorgeazevedo/node-sqlserver-binary/issues"
+        "url" : "https://github.com/jorgeazevedo/node-sqlserver-unofficial/issues"
       },
       "licenses" : [
         {
             "type" : "MIT",
-            "url" : "https://github.com/jorgeazevedo/node-sqlserver-binary/raw/master/LICENSE"
+            "url" : "https://github.com/jorgeazevedo/node-sqlserver-unofficial/raw/master/LICENSE"
         }
       ],
       "main": "./lib/sql.js",
