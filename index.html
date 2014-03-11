@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Node-sqlserver-binary by jorgeazevedo</title>
-    <meta property="og:title" content="Unofficial MS SQL node driver binary" />
-    <meta property="og:url" content="http://jorgeazevedo.github.io/node-sqlserver-binary/" />
-    <meta property="og:image" content="http://i.imgur.com/KsEwdpp.png" />
+    <title>Node-sqlserver-unofficial by jorgeazevedo</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -18,80 +15,86 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Node-sqlserver-binary</h1>
-        <p>This is a compiled version of node-sqlserver patched to run on both x86 and x64 systems</p>
+        <h1>Node-sqlserver-unofficial</h1>
+        <p>An unofficial binary distribution of Microsoft&#39;s node-sqlserver driver, a node.js module to connect to MS/Azure Sql databases.</p>
 
-        <p class="view"><a href="https://github.com/jorgeazevedo/node-sqlserver-binary">View the Project on GitHub <small>jorgeazevedo/node-sqlserver-binary</small></a></p>
+        <p class="view"><a href="https://github.com/jorgeazevedo/node-sqlserver-unofficial">View the Project on GitHub <small>jorgeazevedo/node-sqlserver-unofficial</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-binary/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-binary/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-binary">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-unofficial/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-unofficial/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jorgeazevedo/node-sqlserver-unofficial">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h1>
-<a name="architecture-independent-azure-sql-binary-driver" class="anchor" href="#architecture-independent-azure-sql-binary-driver"><span class="octicon octicon-link"></span></a>Architecture independent Azure SQL binary driver</h1>
+<a name="unofficial-binary-distribution-of-node-sqlserver" class="anchor" href="#unofficial-binary-distribution-of-node-sqlserver"><span class="octicon octicon-link"></span></a>Unofficial binary distribution of node-sqlserver</h1>
 
-<p>This is a binary distribution of Microsoft's
-<a href="https://github.com/WindowsAzure/node-sqlserver">node-sqlserver</a>, patched to run
-on both x86 and x64 systems.</p>
+<p>This is an unofficial binary distribution of Microsoft's
+<a href="https://github.com/WindowsAzure/node-sqlserver">node-sqlserver</a>
+driver(registered in npm as
+<a href="https://www.npmjs.org/package/msnodesql">msnodesql</a>).</p>
 
-<p>Node 0.10.x is the latest version supported. A backport to the 0.8 series using
-the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29995">official Microsoft
-binaries</a> is
-available in the <code>node-0.8-series</code> branch.</p>
-
-<h2>
-<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+<p>It's a C++ module used to connect to MS Sql and Azure Sql databases.
+Here's why you'd want to use it instead of the official one:</p>
 
 <ul>
-<li>Node.JS Runtime 0.10.x (<a href="http://nodejs.org/dist/v0.10.5/">0.10.5</a>
-recommended, as it's the most recent version available in Azure)</li>
+<li>No need to compile from source (which requires Visual Studio and totally
+<a href="https://github.com/WindowsAzure/node-sqlserver/issues/155">confuses</a>
+<a href="https://github.com/WindowsAzure/node-sqlserver/issues/143">people</a>).</li>
+<li>It runs on both x86 and x64 and with node versions 0.8 and 0.10.</li>
+<li>No <a href="http://geekswithblogs.net/shaunxu/archive/2012/11/16/install-npm-packages-automatically-for-node.js-on-windows-azure-web.aspx">weird
+workarounds</a>
+needed to run on Azure web sites.</li>
+</ul><h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>To try this out locally on your machine, you'll need</p>
+
+<ul>
+<li>Node.JS Runtime 0.10.x or 0.8.x (<a href="http://www.windowsazure.com/en-us/documentation/articles/nodejs-specify-node-version-windows-azure-apps/">Azure
+Websites</a>
+support versions <a href="http://nodejs.org/dist/v0.10.5/">0.10.5</a> and
+<a href="http://nodejs.org/dist/v0.8.19/">0.8.19</a>)</li>
 <li>Microsoft SQL Server 2012 Native Client available in the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29065">SQL Server 2012
 Feature Pack</a>.</li>
-<li>Any edition of SQL Server 2005 or later.</li>
 </ul><h2>
-<a name="local-test" class="anchor" href="#local-test"><span class="octicon octicon-link"></span></a>Local test</h2>
+<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h2>
 
-<p>Before running the server, <code>connectionString</code> in <code>server.js</code> must be set to your
+<p><code>test/</code> is a deployable Azure website that queries an Azure SQL
+database and displays the result like so</p>
+
+<pre><code>node v0.10.25 ia32.
+Query result - 1
+</code></pre>
+
+<p>Or, in case something goes wrong, an error message like so</p>
+
+<pre><code>node v0.10.25 ia32.
+Query Failed
+Error: [Microsoft][SQL Server Native Client 11.0][SQL Server]Incorrect syntax near 'SELECT'.
+</code></pre>
+
+<p>The environment is specified in <code>package.json</code> and <code>server.js</code> contains the code.</p>
+
+<p>Before running this, <code>connectionString</code> in <code>server.js</code> must be set to your
 SQL Azure login credentials. An example would be</p>
 
 <pre><code>var connectionString = "Driver={SQL Server Native Client 11.0};Server=tcp:?.database.windows.net,1433;Database=?;Uid=?;Pwd=?";
 </code></pre>
 
-<p>If the dependencies have been correctly installed on your machine and the login
-credentials are correct, running</p>
+<p>I also recommend to run it locally before deploying it to Azure. Running</p>
+
+<pre><code>$ npm install
+</code></pre>
+
+<p>in <code>test/</code> will resolve the dependencies to <code>test/node_modules/</code>, after which running</p>
 
 <pre><code>$ node server.js
 </code></pre>
 
-<p>and accessing <code>http://localhost:1337</code> will present a message similar to</p>
-
-<pre><code>node v0.10.5 x64.
-Query result - 1 
-</code></pre>
-
-<h2>
-<a name="azure-deployment" class="anchor" href="#azure-deployment"><span class="octicon octicon-link"></span></a>Azure deployment</h2>
-
-<p>This project is an example of a deployable Azure website that queries an Azure
-SQL database and prints the result. A very simple sanity test, in essence.</p>
-
-<p>In a typical deployment, <code>node_modules</code> is not under source control. Instead,
-the dependencies are specified in the <code>package.json</code> file. During deployment,
-Azure will issue a <code>npm install</code> in the project root which will download all the
-specified dependencies.</p>
-
-<p>This will fail with node-sqlserver because Azure will not me able to compile it.
-Hence, instead of specifying the dependency in <code>package.json</code>, we add
-<code>node_modules\msnodesql\</code> to the repository. The result is a <code>.gitignore</code> that
-looks like</p>
-
-<pre><code>node_modules/
-!node_modules/msnodesql/
-</code></pre>
+<p>and accessing <code>http://localhost:1337</code> will display the result.</p>
 
 <h2>
 <a name="copyright-and-license" class="anchor" href="#copyright-and-license"><span class="octicon octicon-link"></span></a>Copyright and license</h2>
@@ -99,7 +102,9 @@ looks like</p>
 <p>This derivative work is hereby released under the MIT license, as made possible by the
 terms of the Apache 2.0 license of the original node-sqlserver.</p>
 
-<p>Terms available for review in LICENSE</p>
+<p>Terms available for review in LICENSE.</p>
+
+<p>This work is not affiliate with or endorsed by Microsoft in any way.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/jorgeazevedo">jorgeazevedo</a></p>
