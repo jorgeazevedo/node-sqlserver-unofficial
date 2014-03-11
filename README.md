@@ -1,60 +1,68 @@
-# Architecture independent Azure SQL binary driver
+# Unofficial binary distribution of node-sqlserver
 
-This is a binary distribution of Microsoft's
-[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver), patched to run
-on both x86 and x64 systems.
+This is an unofficial binary distribution of Microsoft's
+[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver)
+driver(registered in npm as
+[msnodesql](https://www.npmjs.org/package/msnodesql)).
 
-Node 0.10.x is the latest version supported. A backport to the 0.8 series using
-the [official Microsoft
-binaries](http://www.microsoft.com/en-us/download/details.aspx?id=29995) is
-available in the `node-0.8-series` branch.
+It's a C++ module used to connect to MS Sql and Azure Sql databases.
+Here's why you'd want to use it instead of the official one:
+
+ * No need to compile from source (which requires Visual Studio and totally
+   [confuses](https://github.com/WindowsAzure/node-sqlserver/issues/155)
+[people](https://github.com/WindowsAzure/node-sqlserver/issues/143)).
+ * It runs on both x86 and x64 and with node versions 0.8 and 0.10.
+ * No [weird
+   workarounds](http://geekswithblogs.net/shaunxu/archive/2012/11/16/install-npm-packages-automatically-for-node.js-on-windows-azure-web.aspx)
+   needed to run on Azure web sites.
 
 ## Dependencies
 
- * Node.JS Runtime 0.10.x ([0.10.5](http://nodejs.org/dist/v0.10.5/)
-   recommended, as it's the most recent version available in Azure)
+To try this out locally on your machine, you'll need
+
+ * Node.JS Runtime 0.10.x or 0.8.x ([Azure
+   Websites](http://www.windowsazure.com/en-us/documentation/articles/nodejs-specify-node-version-windows-azure-apps/)
+   support versions [0.10.5](http://nodejs.org/dist/v0.10.5/) and
+   [0.8.19](http://nodejs.org/dist/v0.8.19/))
  * Microsoft SQL Server 2012 Native Client available in the [SQL Server 2012
    Feature Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29065).
- * Any edition of SQL Server 2005 or later.
 
-## Local test
+## Testing
 
-Before running the server, `connectionString` in `server.js` must be set to your
+`test/` is a deployable Azure website that queries an Azure SQL
+database and displays the result like so
+
+    node v0.10.25 ia32.
+    Query result - 1
+
+Or, in case something goes wrong, an error message like so
+
+    node v0.10.25 ia32.
+    Query Failed
+    Error: [Microsoft][SQL Server Native Client 11.0][SQL Server]Incorrect syntax near 'SELECT'.
+
+The environment is specified in `package.json` and `server.js` contains the code.
+
+Before running this, `connectionString` in `server.js` must be set to your
 SQL Azure login credentials. An example would be
 
     var connectionString = "Driver={SQL Server Native Client 11.0};Server=tcp:?.database.windows.net,1433;Database=?;Uid=?;Pwd=?";
 
-If the dependencies have been correctly installed on your machine and the login
-credentials are correct, running
+I also recommend to run it locally before deploying it to Azure. Running
+
+    $ npm install
+
+in `test/` will resolve the dependencies to `test/node_modules/`, after which running
 
     $ node server.js
 
-and accessing `http://localhost:1337` will present a message similar to
-
-    node v0.10.5 x64.
-    Query result - 1 
-
-## Azure deployment
-
-This project is an example of a deployable Azure website that queries an Azure
-SQL database and prints the result. A very simple sanity test, in essence.
-
-In a typical deployment, `node_modules` is not under source control. Instead,
-the dependencies are specified in the `package.json` file. During deployment,
-Azure will issue a `npm install` in the project root which will download all the
-specified dependencies.
-
-This will fail with node-sqlserver because Azure will not me able to compile it.
-Hence, instead of specifying the dependency in `package.json`, we add
-`node_modules\msnodesql\` to the repository. The result is a `.gitignore` that
-looks like
-
-    node_modules/
-    !node_modules/msnodesql/
+and accessing `http://localhost:1337` will display the result.
 
 ## Copyright and license
 
 This derivative work is hereby released under the MIT license, as made possible by the
 terms of the Apache 2.0 license of the original node-sqlserver.
 
-Terms available for review in LICENSE
+Terms available for review in LICENSE.
+
+This work is not affiliate with or endorsed by Microsoft in any way.
