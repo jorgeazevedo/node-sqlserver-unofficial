@@ -15,7 +15,7 @@ var httpServer = http.createServer(function (req, res) {
 
 	sql.query(connectionString, testQuery, function(err, result) {
 		if(err)
-			res.end("Query Failed \n");
+			res.end("Query Failed \n" + err);
 		else
 			res.end("Query result: " + result[0]['Column0'] + " \n");
 	});
