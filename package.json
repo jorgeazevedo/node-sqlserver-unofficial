@@ -1,6 +1,6 @@
 {
       "name": "msnodesql-unofficial",
-      "description": "Unofficial binary distribution of the msnodesql driver",
+      "description": "Unofficial binary distribution of the msnodesql package.",
       "author": "Jorge Azevedo",
       "version": "1.0.0",
       "keywords": ["sql", "database", "mssql", "azure", "sqlserver", "tds", "microsoft", "msnodesql", "node-sqlserver"],
