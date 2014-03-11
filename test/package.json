@@ -1,0 +1,6 @@
+{
+  "name": "SanityTest",
+  "version": "1.1.0",
+  "engines": {"node": "0.10.25"},
+  "dependencies": {"node-sqlserver-unofficial": "*"}
+}
