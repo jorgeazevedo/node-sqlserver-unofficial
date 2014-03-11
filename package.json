@@ -1,5 +1,5 @@
 {
-      "name": "msnodesql-unofficial",
+      "name": "node-sqlserver-unofficial",
       "description": "Unofficial binary distribution of the msnodesql package.",
       "author": "Jorge Azevedo",
       "version": "1.2.0",
