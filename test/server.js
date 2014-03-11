@@ -1,5 +1,5 @@
-var sql = require('msnodesql');
-var connectionString;
+var sql = require('..');
+var connectionString = "";
 var testQuery = "SELECT 1";
 
 if(!connectionString) {
