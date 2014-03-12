@@ -1,12 +1,12 @@
 # Unofficial binary distribution of node-sqlserver
 
-This is an unofficial binary distribution of Microsoft's
-[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver)
-driver(registered in npm as
-[msnodesql](https://www.npmjs.org/package/msnodesql)).
+[node-sqlserver](https://github.com/WindowsAzure/node-sqlserver) is a C++
+Node.js module used to connect to MS SQL and Azure SQL databases developed by
+Microsoft. It can be found on `npm` under the name
+[msnodesql](https://www.npmjs.org/package/msnodesql).
 
-It's a C++ module used to connect to MS Sql and Azure Sql databases.
-Here's why you'd want to use it instead of the official one:
+This is an unofficial binary distribution of that driver. Here's why you'd want
+to use it instead of the official one:
 
  * No need to compile from source (which requires Visual Studio and totally
    [confuses](https://github.com/WindowsAzure/node-sqlserver/issues/155)
@@ -15,6 +15,10 @@ Here's why you'd want to use it instead of the official one:
  * No [weird
    workarounds](http://geekswithblogs.net/shaunxu/archive/2012/11/16/install-npm-packages-automatically-for-node.js-on-windows-azure-web.aspx)
    needed to run on Azure web sites.
+
+Use it on your projects via `npm`
+
+    $ npm install node-sqlserver-unofficial
 
 ## Dependencies
 
