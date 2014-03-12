@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Node-sqlserver-unofficial by jorgeazevedo</title>
-    <meta property="og:title" content="Unofficial binary distribution of node-sqlserver" />
-    <meta property="og:description" content="An unofficial binary distribution of Microsoft's node-sqlserver driver, a node.js module to connect to MS/Azure Sql databases." />
-    <meta property="og:url" content="http://jorgeazevedo.github.io/node-sqlserver-binary/" />
-    <meta property="og:image" content="http://jorgeazevedo.github.io/node-sqlserver-binary/img/logo180x100.png" /
+    <title>node-sqlserver-unofficial by jorgeazevedo</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -19,8 +15,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Node-sqlserver-unofficial</h1>
-        <p>An unofficial binary distribution of Microsoft&#39;s node-sqlserver driver, a node.js module to connect to MS/Azure Sql databases.</p>
+        <h1>node-sqlserver-unofficial</h1>
+        <p>An unofficial binary distribution of Microsoft&#39;s node-sqlserver driver, a node.js module to connect to MS/Azure SQL databases.</p>
 
         <p class="view"><a href="https://github.com/jorgeazevedo/node-sqlserver-unofficial">View the Project on GitHub <small>jorgeazevedo/node-sqlserver-unofficial</small></a></p>
 
@@ -35,13 +31,13 @@
         <h1>
 <a name="unofficial-binary-distribution-of-node-sqlserver" class="anchor" href="#unofficial-binary-distribution-of-node-sqlserver"><span class="octicon octicon-link"></span></a>Unofficial binary distribution of node-sqlserver</h1>
 
-<p>This is an unofficial binary distribution of Microsoft's
-<a href="https://github.com/WindowsAzure/node-sqlserver">node-sqlserver</a>
-driver(registered in npm as
-<a href="https://www.npmjs.org/package/msnodesql">msnodesql</a>).</p>
+<p><a href="https://github.com/WindowsAzure/node-sqlserver">node-sqlserver</a> is a C++
+Node.js module used to connect to MS SQL and Azure SQL databases developed by
+Microsoft. It can be found on <code>npm</code> under the name
+<a href="https://www.npmjs.org/package/msnodesql">msnodesql</a>.</p>
 
-<p>It's a C++ module used to connect to MS Sql and Azure Sql databases.
-Here's why you'd want to use it instead of the official one:</p>
+<p>This is an unofficial binary distribution of that driver. Here's why you'd want
+to use it instead of the official one:</p>
 
 <ul>
 <li>No need to compile from source (which requires Visual Studio and totally
@@ -51,7 +47,12 @@ Here's why you'd want to use it instead of the official one:</p>
 <li>No <a href="http://geekswithblogs.net/shaunxu/archive/2012/11/16/install-npm-packages-automatically-for-node.js-on-windows-azure-web.aspx">weird
 workarounds</a>
 needed to run on Azure web sites.</li>
-</ul><h2>
+</ul><p>Use it on your projects via <code>npm</code></p>
+
+<pre><code>$ npm install node-sqlserver-unofficial
+</code></pre>
+
+<h2>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <p>To try this out locally on your machine, you'll need</p>
