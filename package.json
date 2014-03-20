@@ -2,7 +2,7 @@
       "name": "node-sqlserver-unofficial",
       "description": "Unofficial binary distribution of the msnodesql package.",
       "author": "Jorge Azevedo",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "keywords": ["sql", "database", "mssql", "azure", "sqlserver", "tds", "microsoft", "msnodesql", "node-sqlserver"],
       "repository" : {
         "type" : "git",
